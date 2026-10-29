@@ -87,13 +87,13 @@ javac -version
 1. Clone the repository:
 
    ```bash
-   git clone <repository-url>
+   git clone <https://github.com/fatema88/os-assignment-doctor-system.git>
    ```
 
 2. Open the project directory:
 
    ```bash
-   cd Hospital-Emergency-Room
+   cd os-assignment-doctor-system
    ```
 
 3. Open the project in your preferred Java IDE.
@@ -166,7 +166,7 @@ This project was developed collaboratively by:
 - **Student 2:** [Fatma Tarek] 
 - **Student 3:** [Nawal Mahmoud] 
 - **Student 4:** [Alaa Ahmed] 
-- **Student 5:** [Habiba Abohada]
+- **Student 5:** [Habiba Abohamda]
 
 
 ---

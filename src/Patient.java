@@ -1,9 +1,9 @@
 public class Patient implements Runnable {
     private final String name;
-    private final WaitingRoom waitingRoom;
+    private final waitingRoom waitingRoom;
     private final Semaphore treatmentDone;
 
-    public Patient(String name, WaitingRoom waitingRoom) {
+    public Patient(String name, waitingRoom waitingRoom) {
         this.name = name;
         this.waitingRoom = waitingRoom;
 

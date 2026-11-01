@@ -1,14 +1,16 @@
+
 import java.util.Queue;
 import java.util.LinkedList;
 
-public class WaitingRoom {
+
+public class waitingRoom {
 
     private Queue<Patient> patients;
     private Semaphore spaces;
     private Semaphore availablePatients;
     private Semaphore mutex;
 
-    public WaitingRoom(int capacity) {
+    public waitingRoom(int capacity) {
         patients = new LinkedList<>();
         spaces = new Semaphore(capacity);
         availablePatients = new Semaphore(0);

@@ -1,4 +1,3 @@
-
 import java.util.Random;
 
 public class Doctor extends Thread {
@@ -15,13 +14,13 @@ public class Doctor extends Thread {
     private static final int MAX_TREATMENT_TIME = 3000;
 
     public Doctor(int id, waitingRoom waitingRoom,
-                  TreatmentRooms treatmentRooms) {
+            TreatmentRooms treatmentRooms) {
 
         this.id = id;
         this.waitingRoom = waitingRoom;
         this.treatmentRooms = treatmentRooms;
 
-        setName("Doctor-" + id);
+        setName("Doctor " + id);
     }
 
     @Override
@@ -52,8 +51,7 @@ public class Doctor extends Thread {
                         " is trying to get a treatment room for " +
                         patient.getName());
 
-                roomAcquired =
-                        treatmentRooms.tryAcquireRoom(3000);
+                roomAcquired = treatmentRooms.tryAcquireRoom(3000);
 
                 if (!roomAcquired) {
 
@@ -70,8 +68,7 @@ public class Doctor extends Thread {
                         " started treating " + patient.getName());
 
                 int treatmentTime = random.nextInt(
-                        MAX_TREATMENT_TIME - MIN_TREATMENT_TIME + 1
-                ) + MIN_TREATMENT_TIME;
+                        MAX_TREATMENT_TIME - MIN_TREATMENT_TIME + 1) + MIN_TREATMENT_TIME;
 
                 Thread.sleep(treatmentTime);
 

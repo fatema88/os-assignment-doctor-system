@@ -15,22 +15,51 @@ public class WaitingRoom {
         mutex = new Semaphore(1);
     }
 
+    // public void enterWaitingRoom(Patient patient) throws InterruptedException {
+    // spaces.acquire();
+    // boolean added = false;
+    // try {
+    // mutex.acquire();
+    // try {
+    // patients.add(patient);
+    // added = true;
+    // } finally {
+    // mutex.release();
+    // }
+    // availablePatients.release();
+    // } finally {
+    // if (!added) {
+    // spaces.release();
+    // }
+    // }
+    // }
+
     public void enterWaitingRoom(Patient patient) throws InterruptedException {
-        spaces.acquire();
-        boolean added = false;
-        try {
+
+        if (spaces.tryAcquire(0)) {
             mutex.acquire();
             try {
                 patients.add(patient);
-                added = true;
+                System.out.println(patient.getName() + " entered the waiting room.");
             } finally {
                 mutex.release();
             }
             availablePatients.release();
-        } finally {
-            if (!added) {
-                spaces.release();
+        } else {
+
+            System.out.println("The waiting room is full.");
+            System.out.println(patient.getName() + " is waiting outside for an available seat.");
+
+            spaces.acquire();
+
+            mutex.acquire();
+            try {
+                patients.add(patient);
+                System.out.println(patient.getName() + " entered the waiting room.");
+            } finally {
+                mutex.release();
             }
+            availablePatients.release();
         }
     }
 
